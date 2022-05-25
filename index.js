@@ -12,7 +12,7 @@ app.use(express.json())
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/notes', noteRouter)
 app.get('/', (req, res) => res.send('Hello World!'))
-app.get('*', (req, res) => res.send('Hello World!'))
+app.get('*', (req, res) => res.json({message: 'wrong path'}))
 
 dbconnection()
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
